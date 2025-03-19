@@ -1,6 +1,6 @@
-# 🚀 Aplicação de Cadastro e Login com Node.js e PostgreSQL
+# 🚀 Aplicação de Lista de Compras - Anota Aí
 
-Este projeto é um sistema de login e cadastro básico utilizando **Node.js**, **PostgreSQL** e **Docker**.
+Este projeto é um sistema de lista de compras compartilhado utilizando **Node.js**, **PostgreSQL** e **Docker**.
 
 ## 📌 Tecnologias utilizadas
 
