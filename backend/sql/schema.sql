@@ -17,6 +17,7 @@ CREATE TABLE request_logs (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS user_logs CASCADE;
 CREATE TABLE user_logs (
     log_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,

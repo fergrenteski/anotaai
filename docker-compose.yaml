@@ -15,18 +15,37 @@ services:
       - "5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./backend/sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql 
     networks:
       - anotaai_network
 
+  anotaai_db_init:
+    image: postgres:latest
+    container_name: anotaai_db_init
+    restart: on-failure
+    depends_on:
+      - anotaai_db
+    volumes:
+      - ./backend/sql/schema.sql:/schema.sql
+    networks:
+      - anotaai_network
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "
+      echo 'Aguardando banco de dados...';
+      until pg_isready -h anotaai_db -p 5432 -U ${POSTGRES_USER}; do sleep 2; done;
+      echo 'Banco de dados pronto, executando script SQL';
+      PGPASSWORD=${POSTGRES_PASSWORD} psql -h anotaai_db -U ${POSTGRES_USER} -d ${POSTGRES_DB} -f /schema.sql;
+      echo 'Schema criado com sucesso!';
+      "
+
   anotaai_backend:
-    build: 
+    build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: anotaai_backend
     restart: always
     depends_on:
-      - anotaai_db
+      - anotaai_db_init
     ports:
       - "3000:3000"
       - "9229:9229"
@@ -41,7 +60,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules # Ignora node_modules do host
+      - /usr/src/app/node_modules
     working_dir: /usr/src/app
     command: sh -c "npm install && npm run dev"
     networks:
@@ -69,4 +88,3 @@ networks:
 
 volumes:
   pgdata:
-
