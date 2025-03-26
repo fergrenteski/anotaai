@@ -2,16 +2,48 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/cadastro.css">
     <title>Cadastro</title>
 </head>
 <body>
-    <h2>Cadastro</h2>
-    <input type="text" id="nome" placeholder="Nome"><br>
-    <input type="email" id="email" placeholder="Email"><br>
-    <input type="password" id="senha" placeholder="Senha"><br>
-    <input type="password" id="confirmacaoSenha" placeholder="Confirme a Senha"><br>
-    <button onclick="cadastrar()">Cadastrar</button>
-    <p id="mensagem"></p>
+    <div class="signup-container">
+        <h1>Criar uma conta</h1>
+        
+        <div class="input-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" required>
+        </div>
+        
+        <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" required>
+        </div>
+        
+        <div class="input-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" required>
+            <div class="requirements">
+                Mínimo de 8 caracteres, incluindo letras e números
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="confirmacaoSenha">Confirmar senha</label>
+            <input type="password" id="confirmacaoSenha" required>
+        </div>
+        <p id="mensagem"></p>
+        <button class="btn-signup" onclick="cadastrar()">Criar conta</button>
+        
+        <div class="terms">
+            Ao criar uma conta, você concorda com nossos 
+            <a href="#">Termos de Serviço</a> e 
+            <a href="#">Política de Privacidade</a>
+        </div>
+        
+        <div class="login-link">
+            Já tem uma conta? <a href="./login.html">Faça login</a>
+        </div>
+    </div>
     <script src="../js/cadastro.js"></script>
 </body>
 </html>

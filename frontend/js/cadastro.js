@@ -8,6 +8,11 @@ async function cadastrar() {
     document.getElementById("mensagem").innerText = "As senhas não coincidem!";
     return;
   }
+  
+  if (senha.length < 8) {
+    document.getElementById("mensagem").innerText = "A senha deve ter pelo menos 8 caracteres";
+    return;
+}
 
   const resposta = await fetch("http://localhost:3000/api/auth/cadastro", {
     method: "POST",
