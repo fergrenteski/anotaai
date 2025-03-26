@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login e Cadastro</title>
+
+    
 </head>
 <body>
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email"><br>
-    <input type="password" id="senha" placeholder="Senha"><br>
-    <button onclick="login()">Entrar</button>
-    <p id="mensagem"></p>
-    <script src="../js/login.js"></script>
+    <div class="container">
+        <div class="form-container login-container">
+            <h1>Login</h1>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <a href="#" style="color: #7367f0; font-size: 14px; text-align: right; text-decoration: none; margin-bottom: 10px;">Esqueceu a senha?</a>
+           <p id="mensagem" ></p>
+            <button onclick="login()">Entrar</button>
+        </div>
+        <div class="info-container">
+            <div id="login-info">
+                <h1>Bem-vindo</h1>
+                <p>Não tem uma conta?</p>
+                <a class="toggle-btn" id="show-signup" href="./cadastro.html">Criar conta</a>
+            </div>
+            <div id="signup-info" style="display: none;">
+                <h1>Olá</h1>
+                <p>Já tem uma conta?</p>
+                <button class="toggle-btn" id="show-login">Fazer login</button>
+            </div>
+        </div>
+        
+    </div>
+<script src="../js/login.js"></script>
 </body>
 </html>
