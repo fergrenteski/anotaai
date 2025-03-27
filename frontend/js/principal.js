@@ -2,7 +2,7 @@ function verificarLogin() {
   const token = sessionStorage.getItem("token");
 
   if (!token) {
-      window.location.href = "login.html";
+      window.location.href = "index.html";
   }
 
   const payload = JSON.parse(atob(token.split(".")[1]));
@@ -11,7 +11,7 @@ function verificarLogin() {
 
 function logout() {
   sessionStorage.removeItem("token");
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 verificarLogin();
