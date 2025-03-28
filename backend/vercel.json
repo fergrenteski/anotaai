@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "authRoutes.js",
+      "src": "/routes/*",
       "use": "@vercel/node"
     },
     {
