@@ -10,7 +10,7 @@ const queries = yaml.load(fs.readFileSync("./sql/queries.yaml", "utf8")).queries
 
 const router = express.Router();
 
-sgMail.setApiKey("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");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 router.post("/resetarSenha", async (req, res) => {
     const { email } = req.body;
