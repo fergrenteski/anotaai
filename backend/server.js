@@ -2,9 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("express");
-const pool = require("./database");
+const pool = require("./database/database");
 
-const authRoutes = require("./authRoutes"); // Importa rotas de autenticação
+const authRoutes = require("./routes/authRoutes"); // Importa rotas de autenticação
+const emailRoutes = require("./routes/emailRoutes"); // Importa rotas de autenticação
 
 const yaml = require("js-yaml");
 const fs = require("fs");
@@ -39,6 +40,8 @@ app.use((req, res, next) => {
 
 // Importa as rotas
 app.use("/api/auth", authRoutes);
+
+app.use("/api/email", emailRoutes);
 
 // Inicia o servidor
 const PORT = process.env.PORT || 3000;

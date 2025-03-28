@@ -1,5 +1,5 @@
 const express = require("express");
-const pool = require("./database");
+const pool = require("../database/database");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const yaml = require("js-yaml");
