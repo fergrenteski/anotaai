@@ -14,8 +14,8 @@
       "use": "@vercel/node"
     },
     {
-      "src": "/sql/*",
-      "use": "@vercel/static"
+      "src": "/sql/queries.yaml",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
