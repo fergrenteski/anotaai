@@ -4,10 +4,12 @@ const crypto = require("crypto");
 const yaml = require("js-yaml");
 const fs = require("fs");
 const sgMail = require("@sendgrid/mail");
+const path = require("path");
 
+// Ajusta o caminho para o arquivo queries.yaml
+const queriesFilePath = path.join(__dirname, "sql", "queries.yaml");
 // Carrega as queries do YAML
-const queries = yaml.load(fs.readFileSync("./sql/queries.yaml", "utf8")).queries;
-
+const queries = yaml.load(fs.readFileSync(queriesFilePath, "utf8")).queries;
 const router = express.Router();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
