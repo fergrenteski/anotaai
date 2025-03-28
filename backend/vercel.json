@@ -10,7 +10,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "database.js",
+      "src": "./database/database.js",
       "use": "@vercel/node"
     },
     {
