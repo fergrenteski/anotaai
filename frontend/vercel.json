@@ -14,11 +14,6 @@
       "use": "@vercel/static"
     }
   ],
-  "files": [
-    "./html/*",
-    "./css/*",
-    "./js/*"
-  ],
   "routes": [
     {
       "src": "/(.*)",
