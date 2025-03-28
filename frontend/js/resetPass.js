@@ -5,7 +5,7 @@ async function resetPassword() {
         document.getElementById("mensagem").innerText = "E-mail Invalido!";
         return;
     }
-    await fetch("http://localhost:3000/api/email/resetarSenha", {
+    await fetch("https://anotaai-backend.vercel.app/api/email/resetarSenha", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ email })

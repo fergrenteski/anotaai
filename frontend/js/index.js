@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/api/auth";
+const url = "https://anotaai-backend.vercel.app/api/auth";
 
 const inputEmailCadastro = document.getElementById("emailCadastro");
 const inputEmailLogin = document.getElementById("emailLogin");
