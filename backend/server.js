@@ -12,11 +12,9 @@ const fs = require("fs");
 
 const path = require("path");
 
-// Ajusta o caminho para o arquivo queries.yaml
-const queriesFilePath = path.resolve( "/sql", "queries.yaml");
-
-// Carrega as queries do YAML
-const queries = yaml.load(fs.readFileSync(queriesFilePath, "utf8")).queries;
+// Caminho para o arquivo YAML que foi incluído no deploy
+const filePath = path.join(__dirname, 'sql', 'queries.yaml');
+const queries = yaml.load(fs.readFileSync(filePath, 'utf8')).queries;
 
 // Inicializa o aplicativo Express
 const app = express();
