@@ -4,8 +4,8 @@ const cors = require("cors");
 const bodyParser = require("express");
 const pool = require("./database/database");
 
-const authRoutes = require("./routes/authRoutes"); // Importa rotas de autenticação
-const emailRoutes = require("./routes/emailRoutes"); // Importa rotas de autenticação
+const authRoutes = require("./authRoutes"); // Importa rotas de autenticação
+const emailRoutes = require("./emailRoutes"); // Importa rotas de autenticação
 
 const yaml = require("js-yaml");
 const fs = require("fs");

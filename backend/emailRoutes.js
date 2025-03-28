@@ -1,16 +1,15 @@
 const express = require("express");
-const pool = require("../database/database");
+const pool = require("./database/database");
 const crypto = require("crypto");
 const yaml = require("js-yaml");
 const fs = require("fs");
 const sgMail = require("@sendgrid/mail");
-const path = require("path");
 
-// Ajusta o caminho para o arquivo queries.yaml
-const queriesFilePath = path.resolve( "./sql", "queries.yaml");
+const path = require('path');
+// Caminho para o arquivo YAML que foi incluído no deploy
+const filePath = path.join(__dirname, 'sql', 'queries.yaml');
+const queries = yaml.load(fs.readFileSync(filePath, 'utf8')).queries;
 
-// Carrega as queries do YAML
-const queries = yaml.load(fs.readFileSync(queriesFilePath, "utf8")).queries;
 const router = express.Router();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
