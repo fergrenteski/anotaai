@@ -1,5 +1,5 @@
 const express = require("express");
-const pool = require("./database/database");
+const pool = require("../database/database");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const yaml = require("js-yaml");
@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Caminho para o arquivo YAML que foi incluído no deploy
-const filePath = path.join(__dirname, 'sql', 'queries.yaml');
+const filePath = path.join(__dirname, '../sql', 'queries.yaml');
 const queries = yaml.load(fs.readFileSync(filePath, 'utf8')).queries;
 const router = express.Router();
 
