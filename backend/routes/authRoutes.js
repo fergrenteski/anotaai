@@ -1,5 +1,5 @@
 const express = require("express");
-const pool = require("./database");
+const pool = require("../database/database");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const yaml = require("js-yaml");
@@ -21,11 +21,7 @@ const gerarToken = (usuario) => {
 
 // Rota de cadastro de usuário
 router.post("/cadastro", async (req, res) => {
-    const { nome, email, senha, confirmacaoSenha } = req.body;
-
-    if (senha !== confirmacaoSenha) {
-        return res.status(400).json({ error: "As senhas não conferem!" });
-    }
+    const { nome, email, senha} = req.body;
 
     try {
         const existe = await pool.query(queries.select_user_by_email, [email]);

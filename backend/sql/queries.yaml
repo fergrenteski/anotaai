@@ -13,8 +13,16 @@ queries:
 
   insert_user_log_register: >
     INSERT INTO user_logs (user_id, action) 
-    VALUES ($1, 'REGISTRO');
+    VALUES ($1, 'REGISTER');
 
   insert_user_log_login: >
     INSERT INTO user_logs (user_id, action) 
     VALUES ($1, 'LOGIN');
+
+  insert_user_log_reset_password: >
+      INSERT INTO user_logs (user_id, action) 
+      VALUES ($1, 'RESET PASSWORD');
+
+  insert_user_reset_password_keys: >
+    INSERT INTO user_reset_password_keys (user_id, token, expires_at)
+    VALUES ($1, $2, $3);

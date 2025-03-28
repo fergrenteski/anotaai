@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "authRoutes.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "database.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "/sql/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "files": [
+    "sql/queries.yaml"
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
+  ]
+}
