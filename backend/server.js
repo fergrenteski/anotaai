@@ -13,7 +13,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Ajusta o caminho para o arquivo queries.yaml
-const queriesFilePath = path.resolve( "sql", "queries.yaml");
+const queriesFilePath = path.resolve( "/sql", "queries.yaml");
 
 // Carrega as queries do YAML
 const queries = yaml.load(fs.readFileSync(queriesFilePath, "utf8")).queries;

@@ -18,6 +18,9 @@
       "use": "@vercel/static"
     }
   ],
+  "files": [
+    "/sql/queries.yaml"
+  ],
   "routes": [
     {
       "src": "/(.*)",
