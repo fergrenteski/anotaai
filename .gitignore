@@ -8,4 +8,5 @@ logs
 
 # Docker
 pgdata/
+postgres_data/
 frontend/nginx/default.conf~
