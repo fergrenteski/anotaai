@@ -26,3 +26,5 @@ queries:
   insert_user_reset_password_keys: >
     INSERT INTO user_reset_password_keys (user_id, token, expires_at)
     VALUES ($1, $2, $3);
+  remove_user_reset_password_keys: >
+    DELETE FROM user_reset_password_keys WHERE user_id = $1;
