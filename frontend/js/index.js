@@ -1,4 +1,5 @@
-const url = "https://anotaai-backend.vercel.app/api/auth";
+import API_URLS from "./utils/env.js";
+const url = API_URLS.AUTH_URL;
 
 const inputEmailCadastro = document.getElementById("emailCadastro");
 const inputEmailLogin = document.getElementById("emailLogin");
@@ -138,3 +139,7 @@ document.getElementById('show-signup').addEventListener('click', () => toggleFor
 
 // Alterar a tela para o login
 document.getElementById('show-login').addEventListener('click', () => toggleForms(false));
+
+document.getElementById("senhaCadastro").addEventListener("input", validarSenhas);
+
+document.getElementById("confirmarSenhaCadastro").addEventListener("input", validarSenhas);
