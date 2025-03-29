@@ -11,6 +11,9 @@ const pool = new Pool({
     database: process.env.POSTGRES_DB,  // Nome do banco de dados
     password: process.env.POSTGRES_PASSWORD, // Senha do banco
     port: process.env.DB_PORT,      // Porta do banco (padrão 5432)
+    ssl: {
+        rejectUnauthorized: false, // Importante para conexões SSL
+    },
 });
 
 // Exporta o pool para ser usado em outros arquivos
